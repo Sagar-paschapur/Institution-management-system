@@ -1,0 +1,12 @@
+{% extends 'adminnavbar.html' %}
+{% load static %}
+<html>
+<head>
+   <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+{% block content %}
+   <h3 align="center">Welcome {{ data }} to home page</h3>
+{% endblock %}
+</body>
+</html>

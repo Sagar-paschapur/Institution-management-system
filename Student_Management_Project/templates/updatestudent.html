@@ -1,0 +1,56 @@
+{% extends 'adminnavbar.html' %}
+{% block content %}
+<h2 align="center">Update Student Data</h2>
+<form method="post">
+  {% csrf_token %}
+<table align="center">
+<tr>
+  <td>Student Name</td>
+    <td><input type="text" name="txtStudentName" value="{{ student.stud_name}}"></td>
+</tr>
+<tr>
+  <td>Student Phno</td>
+    <td><input type="number" name="txtStudentNum" value="{{ student.stud_phno}}"></td>
+</tr>
+    <tr>
+  <td>Student email</td>
+    <td><input type="email" name="txtStudentMail" value="{{ student.stud_email}}"></td>
+</tr>
+    <tr>
+  <td>Student City</td>
+        <td><select name="ddlcity">
+          <option selected>{{ student.stud_city }}</option>
+            {% for i in citydata %}
+            <option>{{ i.city_name }}</option>
+            {% endfor %}
+        </select></td>
+</tr>
+    <tr>
+        <td>Student Course</td>
+      <td><select name="ddlcourse">
+          <option selected>{{ student.stud_course }}</option>
+        {% for i in coursedata %}
+          <option>{{ i.course_name }}</option>
+          {% endfor %}
+        </select></td>
+</tr>
+     <tr>
+        <td>Course Fees</td>
+        <td><input type="number" name="txtCourseFees" disabled></td>
+    </tr>
+    <tr>
+        <td>Paid Fees</td>
+        <td><input type="number" name="txtPaidFees" value="{{ student.paid_fees}}"></td>
+    </tr>
+       <tr>
+        <td>Pending Fees</td>
+        <td><input type="number" name="txtPaidFees" value="{{ student.pending_fees}}" disabled></td>
+    </tr>
+    <tr>
+        <td align="center" colspan="2"><input type="submit" value="UpdateStudent" name="btnSub"></td>
+    </tr>
+
+</table>
+    </form>
+
+{% endblock %}
